@@ -1,85 +1,200 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kangana Shankar • Portfolio</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background: #f7f7f7;
-            color: #333;
-        }
-        header {
-            background: #4a4aef;
-            color: white;
-            padding: 40px 20px;
-            text-align: center;
-        }
-        section {
-            max-width: 800px;
-            margin: 40px auto;
-            background: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-        }
-        h2 {
-            color: #4a4aef;
-            margin-bottom: 10px;
-        }
-        ul {
-            line-height: 1.8;
-        }
-        .projects a {
-            color: #4a4aef;
-            text-decoration: none;
-            font-weight: bold;
-        }
-        .projects a:hover {
-            text-decoration: underline;
-        }
-    </style>
-</head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kangana Shankar | Portfolio</title>
+<meta name="description" content="Portfolio of Kangana Shankar: finance, business analytics, UI/UX and art.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap" rel="stylesheet">
+<style>
+/* ===== EDIT COLORS & FONTS HERE: change once, updates the whole site ===== */
+:root{
+  --ink:#14213d; --paper:#f3f6fa; --accent:#2f5bea; --sun:#f2b632; --line:#d5dce8; --muted:#4a5878;
+  --head:"Bricolage Grotesque","Helvetica Neue",Arial,sans-serif;
+  --body:"Newsreader",Georgia,"Times New Roman",serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font:1.15rem/1.65 var(--body)}
+a{color:var(--accent)}
+a:focus-visible{outline:3px solid var(--sun);outline-offset:3px}
+.wrap{max-width:960px;margin:0 auto;padding:0 1.5rem}
+h1,h2,h3{font-family:var(--head);line-height:1.1;margin:0}
 
+nav{padding:1.25rem 0}
+nav .wrap{display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap}
+nav b{font-family:var(--head);font-weight:800}
+nav ul{display:flex;gap:1.5rem;list-style:none;margin:0;padding:0;font-family:var(--head);font-weight:500}
+nav a{color:var(--ink);text-decoration:none}
+nav a:hover{text-decoration:underline;text-decoration-color:var(--sun);text-decoration-thickness:3px}
+
+.hero{display:grid;grid-template-columns:1.5fr 1fr;gap:3rem;align-items:center;padding:3rem 0 4.5rem}
+.hero h1{font-size:clamp(3rem,9vw,5.8rem);font-weight:800;letter-spacing:-.03em}
+.statement{font-size:1.5rem;line-height:1.45;margin:1.5rem 0 0;max-width:30ch}
+.photo{position:relative;justify-self:center;width:min(100%,300px)}
+.photo::before{content:"";position:absolute;inset:14px -14px -14px 14px;background:var(--sun);border-radius:150px 150px 12px 12px}
+.photo img{position:relative;display:block;width:100%;aspect-ratio:4/5;object-fit:cover;object-position:top;border-radius:150px 150px 12px 12px}
+
+section{padding:3.5rem 0;border-top:2px solid var(--line)}
+h2{font-size:2rem;font-weight:800;margin-bottom:1.75rem}
+
+.skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:2rem}
+.skills h3{font-size:1.15rem;margin-bottom:.75rem}
+.skills ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:.5rem}
+.skills li{background:#fff;border:1.5px solid var(--ink);border-radius:999px;padding:.15rem .85rem;font-size:1rem}
+
+.project{display:grid;grid-template-columns:1fr 2fr;gap:1.5rem;padding:1.5rem 0;border-bottom:1px solid var(--line)}
+.project:first-of-type{padding-top:0}
+.project h3{font-size:1.4rem}
+.project small{display:block;color:var(--muted);font-size:1rem;margin-top:.35rem}
+.project p{margin:0 0 .5rem}
+.links a{margin-right:1.25rem;font-family:var(--head);font-weight:500}
+
+.contact p{margin:.25rem 0}
+footer{padding:2rem 0 3rem;color:var(--muted);font-size:1rem}
+
+@media (max-width:720px){
+  .hero{grid-template-columns:1fr;gap:2.5rem}
+  .photo{order:-1;width:min(70%,260px);justify-self:start}
+  .project{grid-template-columns:1fr;gap:.5rem}
+}
+</style>
+</head>
 <body>
 
-    <header>
-        <h1>Kangana Shankar</h1>
-        <p>Driven student passionate about building clean, user‑focused digital experiences.</p>
-    </header>
+<nav>
+  <div class="wrap">
+    <b>Kangana Shankar</b>
+    <ul>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
 
-    <section>
-        <h2>Skills</h2>
+<main>
+<div class="wrap">
+
+  <!-- ===== PERSONAL STATEMENT: edit the one sentence below ===== -->
+  <header class="hero">
+    <div>
+      <h1>Kangana Shankar</h1>
+      <p class="statement">I'm a Rutgers Honors College student in finance and business analytics who combines design thinking, creative storytelling, and data to build clear, human-centered experiences.</p>
+    </div>
+    <div class="photo">
+      <!-- Make sure headshot.jpg sits in the same folder as this file -->
+      <img src="headshot.jpg" alt="Portrait of Kangana Shankar">
+    </div>
+  </header>
+
+  <!-- ===== SKILLS: add or remove <li> items; add a new group by copying a <div> ===== -->
+  <section id="skills">
+    <h2>Skills</h2>
+    <div class="skills">
+      <div>
+        <h3>Business &amp; analytics</h3>
         <ul>
-            <li>Java</li>
-            <li>SQL</li>
-            <li>HTML, CSS, JavaScript</li>
-            <li>Git & GitHub</li>
-            <li>Debugging (Java)</li>
-            <li>Data Structures (Union-Find, Quick-Find, Quick-Union)</li>
-            <li>Project Management</li>
-            <li>Technical Writing & Communication</li>
+          <li>Microsoft Excel</li>
+          <li>Financial accounting</li>
+          <li>Business statistics</li>
+          <li>Wealth management operations</li>
+          <li>Salesforce FSC, Addepar, eMoney</li>
         </ul>
-    </section>
+      </div>
+      <div>
+        <h3>Design &amp; research</h3>
+        <ul>
+          <li>Figma prototyping</li>
+          <li>UX research</li>
+          <li>Wireframing</li>
+          <li>Usability analysis</li>
+          <li>Canva</li>
+          <li>Adobe Lightroom</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Leadership &amp; communication</h3>
+        <ul>
+          <li>Founding &amp; running clubs</li>
+          <li>Social media strategy</li>
+          <li>Event planning</li>
+          <li>Public speaking &amp; advocacy</li>
+          <li>Google Workspace</li>
+        </ul>
+      </div>
+    </div>
+  </section>
 
-    <section class="projects">
-        <h2>Projects</h2>
+  <!-- ===== PROJECTS: to add one, copy a whole <article class="project"> block and paste it at the top ===== -->
+  <section id="projects">
+    <h2>Projects</h2>
 
-        <h3>BoardGameDebugger (Java)</h3>
-        <p>A debugging-focused Java project implementing tile counting, turn tracking, and game state validation.</p>
-        <p><a href="#">GitHub Link</a></p>
+    <article class="project">
+      <div>
+        <h3>Personality House</h3>
+        <small>Net art hypertext narrative, 2026</small>
+      </div>
+      <div>
+        <p>A hypertext story disguised as a Type A vs. Type B personality test. Readers move through a magical house of strange scenarios, and each choice quietly reveals which type they are. Built for my Network Art course.</p>
+        <p class="links"><a href="https://kanganashankar.github.io/net.art/hypertext/index.html">Read the story</a></p>
+      </div>
+    </article>
 
-        <h3>SQL Data Exploration</h3>
-        <p>Mini‑projects analyzing datasets using joins, many‑to‑many relationships, and aggregate functions.</p>
-        <p><a href="#">GitHub Link</a></p>
+    <article class="project">
+      <div>
+        <h3>Goodreads website redesign</h3>
+        <small>UI/UX fellowship, Rutgers Blueprint, 2026</small>
+      </div>
+      <div>
+        <p>A 9-week redesign of the Goodreads desktop site. I synthesized feedback from 20+ users to find clutter, outdated layouts, and limited customization, then built wireframes and an interactive Figma prototype with simpler navigation and customizable elements.</p>
+        <p class="links">
+          <a href="https://www.figma.com/proto/DlL8twBofu1OWbzeDJgd3e/Team-1---Blueprint-UI-UX?node-id=2-2&amp;t=17GSx1kCyI0b9cBd-1&amp;scaling=min-zoom&amp;content-scaling=fixed&amp;page-id=0%3A1&amp;starting-point-node-id=2%3A2">View the Figma prototype</a>
+        </p>
+      </div>
+    </article>
 
-        <h3>Photography Portfolio</h3>
-        <p>A curated set of event and candid photography showcasing composition and storytelling.</p>
-        <p><a href="#">Gallery Link</a></p>
-    </section>
+    <article class="project">
+      <div>
+        <h3>Art portfolio</h3>
+        <small>Painting, murals, and photography</small>
+      </div>
+      <div>
+        <p>A collection of my artwork, including Scholastic Gold Key award-winning pieces. I also share new work on my art Instagram.</p>
+        <p class="links">
+          <a href="https://docs.google.com/presentation/d/1nQxoBhJF3CWj04D6dKqokjCGGCYIYjPoVO7cgr27Vx4/edit?usp=sharing">Slideshow portfolio</a>
+          <a href="https://www.instagram.com/arts_kangana/">@arts_kangana</a>
+        </p>
+      </div>
+    </article>
+
+    <article class="project">
+      <div>
+        <h3>McNair Mural Club</h3>
+        <small>Co-founder &amp; Vice Chair, 2022 to 2025</small>
+      </div>
+      <div>
+        <p>Co-founded a student mural club that completed 6+ large-scale murals and a 20-foot outdoor mural, was featured by the Jersey City Department of Cultural Affairs, and organized a panel with city officials and Ms. Marvel designers.</p>
+      </div>
+    </article>
+  </section>
+
+  <!-- ===== CONTACT ===== -->
+  <section id="contact" class="contact">
+    <h2>Contact</h2>
+    <p>Email: <a href="mailto:ks2288@scarletmail.rutgers.edu">ks2288@scarletmail.rutgers.edu</a></p>
+    <p>LinkedIn: <a href="https://www.linkedin.com/in/kangana-shankar/">linkedin.com/in/kangana-shankar</a></p>
+    <p>Instagram: <a href="https://www.instagram.com/arts_kangana/">@arts_kangana</a></p>
+  </section>
+
+</div>
+</main>
+
+<footer>
+  <div class="wrap">&copy; 2026 Kangana Shankar</div>
+</footer>
 
 </body>
 </html>
